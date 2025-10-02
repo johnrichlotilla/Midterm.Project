@@ -1,0 +1,26 @@
+
+        /* Custom styles for smooth scrolling and clean font */
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: rgb(104, 208, 211); 
+        }
+        /* Style for the button hover effect */
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+        }
+        /* Custom scrollbar for aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #544fab;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #737476;
+        }
+    
