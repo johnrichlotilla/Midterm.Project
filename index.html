@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Professional Portfolio</title>
-    <!-- Load Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* Custom styles and configuration for Inter font and smooth scrolling */
@@ -14,15 +14,18 @@
             scroll-behavior: smooth;
         }
 
+        /* KEY CHANGE 1: Dark Mode Base Styles */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff; /* Consistent light background */
-            color: #1a202c;
+            background-color: #121212; /* Very dark gray for deep background */
+            color: #e5e7eb; /* Light text for contrast */
         }
 
         /* Styling for the sticky header navigation */
         .sticky-header {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            /* Match body background but slightly lighter for depth */
+            background-color: #1a1a1a; 
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
         }
 
         /* Section minimum height for better view on desktop */
@@ -30,40 +33,40 @@
             min-height: 100vh;
             padding-top: 5rem; /* Space for fixed header */
         }
+
+        /* Optional: Subtle tech pattern for depth in certain sections */
+        .tech-pattern-bg {
+             background-image: linear-gradient(0deg, transparent 24%, rgba(0, 255, 255, .03) 25%, rgba(0, 255, 255, .03) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, .03) 75%, rgba(0, 255, 255, .03) 76%, transparent 77%), linear-gradient(90deg, transparent 24%, rgba(0, 255, 255, .03) 25%, rgba(0, 255, 255, .03) 26%, transparent 27%, transparent 74%, rgba(0, 255, 255, .03) 75%, rgba(0, 255, 255, .03) 76%, transparent 77%);
+            background-size: 50px 50px;
+        }
     </style>
 </head>
 <body class="antialiased">
 
-    <!-- Sticky Navigation Header -->
-    <header class="sticky top-0 z-50 bg-white sticky-header">
+    <header class="sticky top-0 z-50 sticky-header">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
-                    <a href="#home" class="text-2xl font-bold text-indigo-600 hover:text-indigo-800 transition duration-300">
+                    <a href="#home" class="text-2xl font-bold text-primary hover:text-cyan-400 transition duration-300">
                         [John Rich]
                     </a>
                 </div>
-                <!-- Desktop Navigation Links -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <!-- Applied Tailwind classes directly for nav-link styling -->
-                        <a href="#home" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium transition duration-150">Home</a>
-                        <a href="#about" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium transition duration-150">About</a>
-                        <a href="#resume" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium transition duration-150">Resume</a>
-                        <a href="#projects" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium transition duration-150">Projects</a>
-                        <a href="#skills" class="text-gray-600 hover:text-indigo-600 px-3 py-2 rounded-md text-base font-medium transition duration-150">Skills</a>
-                        <a href="#contact" class="bg-indigo-600 text-white hover:bg-indigo-700 px-4 py-2 rounded-lg text-base font-medium transition duration-150 transform hover:scale-105 shadow-md">Contact</a>
+                        <a href="#home" class="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-base font-medium transition duration-150">Home</a>
+                        <a href="#about" class="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-base font-medium transition duration-150">About</a>
+                        <a href="#resume" class="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-base font-medium transition duration-150">Resume</a>
+                        <a href="#projects" class="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-base font-medium transition duration-150">Projects</a>
+                        <a href="#skills" class="text-gray-300 hover:text-primary px-3 py-2 rounded-md text-base font-medium transition duration-150">Skills</a>
+                        <a href="#contact" class="bg-primary text-gray-900 hover:bg-cyan-400 px-4 py-2 rounded-lg text-base font-medium transition duration-150 transform hover:scale-105 shadow-digital-glow">Contact</a>
                     </div>
                 </div>
-                <!-- Mobile Menu Button -->
                 <div class="md:hidden">
-                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white transition duration-200" aria-controls="mobile-menu" aria-expanded="false">
+                    <button id="mobile-menu-button" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-white hover:bg-primary focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary transition duration-200" aria-controls="mobile-menu" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
-                        <!-- Icon when menu is closed (Hamburger) -->
                         <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
-                        <!-- Icon when menu is open (X) -->
                         <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -72,179 +75,161 @@
             </div>
         </nav>
 
-        <!-- Mobile Menu (initially hidden) -->
-        <div class="md:hidden hidden" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-100">
-                <!-- Applied Tailwind classes directly for mobile nav-link styling -->
-                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150">Home</a>
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150">About</a>
-                <a href="#resume" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150">Resume</a>
-                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150">Projects</a>
-                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 transition duration-150">Skills</a>
-                <a href="#contact" class="block w-full text-center px-4 py-2 mt-2 font-medium rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition duration-150">Contact</a>
+        <div class="md:hidden hidden bg-[#1a1a1a]" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-700">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-primary transition duration-150">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-primary transition duration-150">About</a>
+                <a href="#resume" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-primary transition duration-150">Resume</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-primary transition duration-150">Projects</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-primary transition duration-150">Skills</a>
+                <a href="#contact" class="block w-full text-center px-4 py-2 mt-2 font-medium rounded-lg bg-primary text-gray-900 hover:bg-cyan-400 transition duration-150">Contact</a>
             </div>
         </div>
     </header>
 
-    <!-- Tailwind Class Definitions for Navigation (Embedded) -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        'primary': '#4f46e5',
+                        /* KEY CHANGE 2: Updated Primary Color to a Bright, Tech-y Cyan */
+                        'primary': '#00FFFF', /* Neon Cyan */
                         'secondary': '#10b981',
+                        'bg-dark-card': '#1a1a1a', /* Dark card background */
+                    },
+                    /* KEY CHANGE 3: Add custom glow/shadow for a digital feel */
+                    boxShadow: {
+                        'digital-glow': '0 0 10px rgba(0, 255, 255, 0.4), 0 0 5px rgba(0, 255, 255, 0.2)',
                     }
                 }
             }
         }
     </script>
     
-    <!-- Hero Section (Home) -->
-    <section id="home" class="bg-gray-50 flex items-center">
+    <section id="home" class="bg-[#121212] tech-pattern-bg flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid md:grid-cols-2 gap-12 items-center">
             <div class="order-2 md:order-1">
-                <p class="text-xl font-medium text-indigo-600 mb-3">👋 Hi, I'm a...</p>
-                <h1 class="text-5xl lg:text-7xl font-extrabold text-gray-900 leading-tight mb-4">
-                    Web Developer <span class="text-indigo-600">and Designer</span>
+                <p class="text-xl font-medium text-primary mb-3">👋 Hi, I'm a...</p>
+                <h1 class="text-5xl lg:text-7xl font-extrabold text-white leading-tight mb-4">
+                    Web Developer <span class="text-primary">and Designer</span>
                 </h1>
-                <p class="text-lg text-gray-600 mb-8 max-w-lg">
+                <p class="text-lg text-gray-400 mb-8 max-w-lg">
                     Creating responsive, fast, and visually appealing web applications. Let's build something amazing together.
                 </p>
-                <a href="#projects" class="px-8 py-3 text-lg font-semibold rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition duration-300 transform hover:scale-[1.03] shadow-xl">
+                <a href="#projects" class="px-8 py-3 text-lg font-semibold rounded-lg bg-primary text-gray-900 hover:bg-cyan-400 transition duration-300 transform hover:scale-[1.03] shadow-digital-glow">
                     View My Work
                 </a>
             </div>
-            <!-- Placeholder Image/Avatar: Using a functional placeholder URL -->
             <div class="order-1 md:order-2 flex justify-center">
-                <div class="w-64 h-64 lg:w-80 lg:h-80 bg-indigo-200 rounded-full flex items-center justify-center shadow-2xl border-4 border-white overflow-hidden">
-                    <!-- Updated Image URL -->
-                    <img src="/assets/image/image.png" alt="Profile Picture Placeholder" class="w-full h-full object-cover"> 
+                <div class="w-64 h-64 lg:w-80 lg:h-80 bg-gray-800 rounded-full flex items-center justify-center shadow-2xl border-4 border-primary overflow-hidden">
+                    <img src="image.png" alt="Profile Picture Placeholder" class="w-full h-full object-cover"> 
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="bg-white">
+    <section id="about" class="bg-[#1a1a1a] border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">About Me</h2>
-                <p class="text-lg text-gray-600">A brief overview of my passion and experience.</p>
+                <h2 class="text-4xl font-extrabold text-white mb-4">About Me</h2>
+                <p class="text-lg text-gray-400">A brief overview of my passion and experience.</p>
             </div>
-            <div class="max-w-4xl mx-auto bg-gray-50 p-8 rounded-xl shadow-lg border-l-4 border-indigo-600">
-                <p class="text-gray-700 leading-relaxed text-lg">
+            <div class="max-w-4xl mx-auto bg-bg-dark-card p-8 rounded-xl shadow-xl border-l-4 border-primary">
+                <p class="text-gray-300 leading-relaxed text-lg">
                     I am a dedicated front-end developer with three years of experience in creating dynamic and user-centric web interfaces. My expertise lies in HTML, CSS (especially Tailwind and custom styling), and JavaScript. I thrive in collaborative environments and am passionate about turning complex problems into elegant, simple solutions. I specialize in building responsive layouts and ensuring accessibility and performance. Outside of coding, I enjoy learning new frameworks and contributing to open-source projects.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Resume Section -->
-    <section id="resume" class="bg-gray-100">
+    <section id="resume" class="bg-[#121212] tech-pattern-bg border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
             <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">My Resume</h2>
-                <p class="text-lg text-gray-600">Experience and education highlights.</p>
+                <h2 class="text-4xl font-extrabold text-white mb-4">My Resume</h2>
+                <p class="text-lg text-gray-400">Experience and education highlights.</p>
             </div>
-    <img src="/assets/image/Screenshot 2025-10-02 214254.png" alt="Click me">
-    <p>This resume outlines the profile of a young individual with a high school academic background, strong soft skills, and a current focus on personal development and career exploration.</p>
-               
-            </div>
+            <img src="Screenshot 2025-10-02 214254.png" alt="Click me">
+            <p class="text-gray-300 mt-4">This resume outlines the profile of a young individual with a high school academic background, strong soft skills, and a current focus on personal development and career exploration.</p>
+            
             <div class="text-center mt-12">
-                <button class="px-6 py-3 text-lg font-semibold border-2 border-indigo-600 text-indigo-600 rounded-lg hover:bg-indigo-600 hover:text-white transition duration-300 transform hover:scale-105 shadow-md">
+                <button class="px-6 py-3 text-lg font-semibold border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-gray-900 transition duration-300 transform hover:scale-105 shadow-digital-glow">
                     Download Full CV (PDF)
                 </button>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="bg-white">
-        <div class="projects-section">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">My Featured Projects</h2>
-                <p class="text-lg text-gray-600">Showcasing my best work in web development.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border border-gray-200">
-                    <div class="h-48 bg-indigo-500 flex items-center justify-center text-white text-2xl font-bold p-4">project 1</div>
-                    <div class="p-6">
-                        <img src="/assets/image/Screenshot 2025-10-02 233420.png" alt="Project 1 Screenshot">
-                        <p class="assets/image/Screenshot 2025-10-02 233420.png">The wireframe appears to be an organized plan for a visually striking, high-contrast online store.</p>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border border-gray-200">
-                    <div class="h-48 bg-indigo-500 flex items-center justify-center text-white text-2xl font-bold p-4">project 2</div>
-                    <div class="p-6">
-                        <img src="/assets/image/Screenshot (1).png" alt="Project 1 Screenshot">
-                         
-                        <p class="text-gray-600 text-sm mb-4">Overall, the design uses high-contrast text and a heavily textured background to create a distinct, modern look for a personal online presence.</p>
-                    </div>
-                </div>
-            </div>
-         </div>
-    </div>
-</section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="bg-gray-100">
+    <section id="projects" class="bg-[#1a1a1a] border-t border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">My Skills & Expertise</h2>
-                <p class="text-lg text-gray-600">The technologies and tools I excel at.</p>
-            </div>
-            <div class="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- Skill Card: HTML5 -->
-                <div class="bg-white p-5 rounded-xl shadow-lg flex flex-col items-center hover:border-b-4 border-indigo-500 transition duration-300 transform hover:scale-[1.05]">
-                    <!-- Placeholder SVG for Code -->
-                    <svg class="h-8 w-8 text-indigo-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                    <span class="text-lg font-medium text-gray-800">HTML5</span>
+            <div class="projects-section">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-extrabold text-white mb-4">My Featured Projects</h2>
+                    <p class="text-lg text-gray-400">Showcasing my best work in web development.</p>
                 </div>
-                <!-- Skill Card: CSS/Tailwind -->
-                <div class="bg-white p-5 rounded-lg shadow-lg flex flex-col items-center hover:border-b-4 border-indigo-500 transition duration-300 transform hover:scale-[1.05]">
-                    <!-- Placeholder SVG for Palette -->
-                    <svg class="h-8 w-8 text-indigo-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a1 1 0 01-2 0V11a1 1 0 112 0v10zm12-14a1 1 0 01-2 0V3a1 1 0 112 0v4zm-7 10a1 1 0 01-2 0V5a1 1 0 112 0v12z" /></svg>
-                    <span class="text-lg font-medium text-gray-800">CSS3/Tailwind</span>
-                </div>
-                <!-- Skill Card: JavaScript -->
-                <div class="bg-white p-5 rounded-lg shadow-lg flex flex-col items-center hover:border-b-4 border-indigo-500 transition duration-300 transform hover:scale-[1.05]">
-                    <!-- Placeholder SVG for Terminal -->
-                    <svg class="h-8 w-8 text-indigo-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                    <span class="text-lg font-medium text-gray-800">JavaScript (ES6+)</span>
-                </div>
-                <!-- Skill Card: Frameworks -->
-                <div class="bg-white p-5 rounded-lg shadow-lg flex flex-col items-center hover:border-b-4 border-indigo-500 transition duration-300 transform hover:scale-[1.05]">
-                    <!-- Placeholder SVG for Globe/Layers -->
-                    <svg class="h-8 w-8 text-indigo-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 1.1.9 2 2 2h12a2 2 0 002-2V9.83a2 2 0 00-.59-1.42l-2.83-2.83a2 2 0 00-1.42-.59H6a2 2 0 00-2 2z" /></svg>
-                    <span class="text-lg font-medium text-gray-800">React/Angular</span>
-                </div>
-                <!-- Additional Skill Card: Git -->
-                 <div class="bg-white p-5 rounded-lg shadow-lg flex flex-col items-center hover:border-b-4 border-indigo-500 transition duration-300 transform hover:scale-[1.05]">
-                    <svg class="h-8 w-8 text-indigo-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0l7.5-7.5" /></svg>
-                    <span class="text-lg font-medium text-gray-800">Git/GitHub</span>
-                </div>
-                <!-- Additional Skill Card: Figma -->
-                 <div class="bg-white p-5 rounded-lg shadow-lg flex flex-col items-center hover:border-b-4 border-indigo-500 transition duration-300 transform hover:scale-[1.05]">
-                    <svg class="h-8 w-8 text-indigo-600 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M12 20.354a4 4 0 110-5.292m0 5.292V21m0-16v-1m-9 11h2m-2 0a4 4 0 110-5.292M21 16h-2m2 0a4 4 0 110-5.292" /></svg>
-                    <span class="text-lg font-medium text-gray-800">Figma/Design</span>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-bg-dark-card rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border border-primary">
+                        <div class="h-48 bg-primary flex items-center justify-center text-gray-900 text-2xl font-bold p-4">project 1</div>
+                        <div class="p-6">
+                            <img src="Screenshot (1).png" alt="Project 1 Screenshot">
+                            <p class="text-gray-400 mt-4">The wireframe appears to be an organized plan for a visually striking, high-contrast online store.</p>
+                        </div>
+                    </div>
+                    <div class="bg-bg-dark-card rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 transform hover:-translate-y-1 border border-primary">
+                        <div class="h-48 bg-primary flex items-center justify-center text-gray-900 text-2xl font-bold p-4">project 2</div>
+                        <div class="p-6">
+                            <img src="Screenshot 2025-10-02 233420.png" alt="Project 1 Screenshot">
+                            <p class="text-gray-400 text-sm mb-4">Overall, the design uses high-contrast text and a heavily textured background to create a distinct, modern look for a personal online presence.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section (Styled) -->
-    <section id="contact" class="bg-white flex items-center">
+    <section id="skills" class="bg-[#121212] border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-extrabold text-white mb-4">My Skills & Expertise</h2>
+                <p class="text-lg text-gray-400">The technologies and tools I excel at.</p>
+            </div>
+            <div class="max-w-4xl mx-auto grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+                <div class="bg-bg-dark-card p-5 rounded-xl shadow-lg flex flex-col items-center hover:border-b-4 border-primary transition duration-300 transform hover:scale-[1.05]">
+                    <svg class="h-8 w-8 text-primary mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+                    <span class="text-lg font-medium text-white">HTML5</span>
+                </div>
+                <div class="bg-bg-dark-card p-5 rounded-lg shadow-lg flex flex-col items-center hover:border-b-4 border-primary transition duration-300 transform hover:scale-[1.05]">
+                    <svg class="h-8 w-8 text-primary mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a1 1 0 01-2 0V11a1 1 0 112 0v10zm12-14a1 1 0 01-2 0V3a1 1 0 112 0v4zm-7 10a1 1 0 01-2 0V5a1 1 0 112 0v12z" /></svg>
+                    <span class="text-lg font-medium text-white">CSS3/Tailwind</span>
+                </div>
+                <div class="bg-bg-dark-card p-5 rounded-lg shadow-lg flex flex-col items-center hover:border-b-4 border-primary transition duration-300 transform hover:scale-[1.05]">
+                    <svg class="h-8 w-8 text-primary mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                    <span class="text-lg font-medium text-white">JavaScript (ES6+)</span>
+                </div>
+                <div class="bg-bg-dark-card p-5 rounded-lg shadow-lg flex flex-col items-center hover:border-b-4 border-primary transition duration-300 transform hover:scale-[1.05]">
+                    <svg class="h-8 w-8 text-primary mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 1.1.9 2 2 2h12a2 2 0 002-2V9.83a2 2 0 00-.59-1.42l-2.83-2.83a2 2 0 00-1.42-.59H6a2 2 0 00-2 2z" /></svg>
+                    <span class="text-lg font-medium text-white">React/Angular</span>
+                </div>
+                <div class="bg-bg-dark-card p-5 rounded-lg shadow-lg flex flex-col items-center hover:border-b-4 border-primary transition duration-300 transform hover:scale-[1.05]">
+                    <svg class="h-8 w-8 text-primary mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0l7.5-7.5" /></svg>
+                    <span class="text-lg font-medium text-white">Git/GitHub</span>
+                </div>
+                <div class="bg-bg-dark-card p-5 rounded-lg shadow-lg flex flex-col items-center hover:border-b-4 border-primary transition duration-300 transform hover:scale-[1.05]">
+                    <svg class="h-8 w-8 text-primary mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M12 20.354a4 4 0 110-5.292m0 5.292V21m0-16v-1m-9 11h2m-2 0a4 4 0 110-5.292M21 16h-2m2 0a4 4 0 110-5.292" /></svg>
+                    <span class="text-lg font-medium text-white">Figma/Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="bg-[#1a1a1a] flex items-center border-t border-gray-800">
         <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 text-center w-full">
-            <div class="bg-indigo-50 p-8 sm:p-12 rounded-2xl shadow-2xl border border-indigo-100">
-                <h2 class="text-4xl font-extrabold text-gray-900 mb-6">Contact me</h2>
-                <p class="text-lg text-gray-700 mb-8">
+            <div class="bg-bg-dark-card p-8 sm:p-12 rounded-2xl shadow-digital-glow border border-primary">
+                <h2 class="text-4xl font-extrabold text-white mb-6">Contact me</h2>
+                <p class="text-lg text-gray-400 mb-8">
                     I'm currently available for freelance opportunities or full-time roles. Feel free to reach out!
                 </p>
                 <div class="space-y-4">
-                    <a href="https://www.instagram.com/jrich_lotilla/#" class="block w-full px-6 py-3 text-lg font-semibold rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 transition duration-300 shadow-xl transform hover:scale-[1.02]">
+                    <a href="https://www.instagram.com/jrich_lotilla/#" class="block w-full px-6 py-3 text-lg font-semibold rounded-xl bg-primary text-gray-900 hover:bg-cyan-400 transition duration-300 shadow-xl transform hover:scale-[1.02]">
                         https://www.instagram.com
                     </a>
                 </div>
@@ -252,12 +237,11 @@
         </div>
     </section>
     
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white">
+    <footer class="bg-gray-950 text-white">
         <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 text-center">
             <p>&copy; 2025 [John Rich]. All rights reserved. | Built with HTML, Tailwind CSS.</p>
         </div>
     </footer>
-    </script>
 </body>
 </html>
+```
